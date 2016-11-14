@@ -1,0 +1,8 @@
+node_modules
+bower_components
+jspm_packages
+
+.idea
+.vscode
+
+.DS_STORE
