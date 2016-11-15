@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>fetch</title>
+  <script>
+    var getDataXHR = function() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'db.json');
+      xhr.onreadystatechange = function() {
+        if(xhr.readyState === xhr.DONE && xhr.status === 200) {
+          var firstNames = JSON.parse(xhr.responseText);
+          firstNames.forEach(function(firstName) {
+            console.log(firstName);
+          });
+        }
+      };
+
+      xhr.send();
+    };
+
+    var getDataFetch = function() {
+      fetch('db1.json')
+        .then(res => {
+          if (res.status === 404) {
+            throw new Error('Not Found');
+          }
+        })
+        .then(res => res.json())
+        .then(firstNames => {
+          firstNames.forEach(firstName => console.log(firstName))
+        })
+        .catch(e => {
+          console.log(e.message);
+        })
+    };
+  </script>
+</head>
+<body>
+  <button onclick="getDataXHR()">get data XHR</button>
+  <button onclick="getDataFetch()">get data fetch</button>
+
+</body>
+</html>
