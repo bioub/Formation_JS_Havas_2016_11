@@ -1,0 +1,24 @@
+<style>
+  tr.ng-leave {
+    transition: opacity 400ms ease;
+    opacity: 1;
+  }
+
+  tr.ng-leave.ng-leave-active {
+    opacity: 0;
+  }
+</style>
+<p>
+  Filtre : <input ng-model="filtreContact">
+</p>
+<table class="table table-striped">
+  <tr ng-repeat="contact in contacts | filter: filtreContact">
+    <td>
+      {{contact.prenom}} {{contact.nom}}
+    </td>
+    <td>
+      <a href="#" class="btn btn-primary btn-xs">Afficher</a>
+      <a href="#" class="btn btn-primary btn-xs" ng-click="supprimer($index)">Supprimer</a>
+    </td>
+  </tr>
+</table>

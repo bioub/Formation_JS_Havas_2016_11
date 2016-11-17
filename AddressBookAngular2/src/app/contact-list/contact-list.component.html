@@ -1,0 +1,22 @@
+<div class="card">
+  <div class="card-header">
+    Liste des contacts
+  </div>
+  <div class="card-block">
+    <table class="table table-bordered">
+      <tr>
+        <th>Prénom</th>
+        <th>Nom</th>
+        <th>Actions</th>
+      </tr>
+      <tr *ngFor="let contact of contacts; let i = index;">
+        <td>{{contact.name.first | capitalize}}</td>
+        <td>{{contact.name.last | capitalize}}</td>
+        <td>
+          <a class="btn btn-primary btn-sm" routerLink="/afficher/{{i}}">Afficher</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+

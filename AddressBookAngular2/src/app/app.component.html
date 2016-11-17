@@ -1,0 +1,22 @@
+<nav class="navbar navbar-light bg-faded">
+  <div class="container">
+    <button class="navbar-toggler hidden-sm-up" type="button" aria-controls="navbar-header"
+            aria-expanded="false"
+            aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed"></button>
+    <div class="collapse navbar-toggleable-xs" [ngbCollapse]="isCollapsed">
+      <a class="navbar-brand" routerLink="/">{{title}}</a>
+      <ul class="nav navbar-nav navbar-toggleable-md">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/">Lister</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/ajouter">Ajouter</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-1">
+  <router-outlet></router-outlet>
+</div>

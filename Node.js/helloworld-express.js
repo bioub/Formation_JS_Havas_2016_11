@@ -3,9 +3,7 @@ const express = require('express');
 const server = express();
 
 server.all('/', (req, res) => {
-  res.send(`
-    <p class="dhjdgjh">Hello</p>
-`);
+  res.send('Hello');
 });
 
 server.all('/toto', (req, res) => {

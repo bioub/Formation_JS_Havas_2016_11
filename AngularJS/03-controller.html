@@ -1,0 +1,40 @@
+<!doctype html>
+<html ng-app="app" ng-strict-di>
+<head>
+  <script src="node_modules/angular/angular.js"></script>
+</head>
+<body>
+<div ng-controller="PrenomCtrl">
+  <label>Name:</label>
+  <input type="text" ng-model="yourName" placeholder="Enter a name here">
+  <button ng-click="ajouter()">+</button>
+  <hr>
+  <h1 ng-repeat="yourName in yourNames track by $index">
+    Hello <span ng-bind="yourName"></span>!
+    <button ng-click="supprimer(yourName)">-</button>
+  </h1>
+</div>
+<script>
+  angular.module('app', [])
+    .controller('PrenomCtrl', ['$scope', function($scope) {
+      $scope.yourNames = ['Toto', 'Titi', 'Tata'];
+
+      $scope.ajouter = function() {
+        $scope.yourNames.push($scope.yourName);
+      };
+
+      $scope.supprimer = function(firstName) {
+        var iToDelete;
+        $scope.yourNames.forEach(function(elt, i) {
+          if (elt === firstName) {
+            iToDelete = i;
+          }
+        });
+        if (iToDelete !== undefined) {
+          $scope.yourNames.splice(iToDelete, 1);
+        }
+      };
+    }]);
+</script>
+</body>
+</html>
